@@ -1,0 +1,18 @@
+machine:
+  services:
+    - docker
+dependencies:
+  post:
+    - sudo pip install docker-compose==1.3.3
+    - gem install rubocop
+test:
+  pre:
+    - rubocop
+    - ./build.sh
+  override:
+    - ./test.sh
+deployment:
+  docker:
+    branch: master
+    commands:
+      - ./deploy.sh
