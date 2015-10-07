@@ -8,6 +8,7 @@ gem 'sidekiq'
 gem 'sqlite3'
 gem 'pg'
 gem 'nokogiri'
+gem 'sassc'
 
 # Ensure that git works
 gem 'currencies', git: 'https://github.com/hexorx/currencies.git', tag: 'v0.4.3'
