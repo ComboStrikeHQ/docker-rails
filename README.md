@@ -67,6 +67,8 @@ SIDEKIQ_THREADS | Number of threads | 16
 
 You can also create a `config/sidekiq.yml` file in your app that contains additional configuration.
 
+The default configuration enables the `default` and `mailers` queues.
+
 ### Logging / Logentries
 We use [Logentries](https://logentries.com/) for application logging. If you provide a
 Logentries token, app server and sidekiq log output if forwarded to Logentries. Using Logentries
