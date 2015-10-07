@@ -50,4 +50,4 @@ COPY puma.rb /etc/puma.rb
 RUN useradd -m app
 RUN mkdir /home/app/webapp && chown app:app -R /home/app
 
-#RUN rm -rf /tmp/* /var/tmp/* /var/lib/apt /var/lib/dpkg /usr/share/man /usr/share/doc
+RUN rm -rf /tmp/* /var/tmp/* /var/lib/apt /var/lib/dpkg /usr/share/man /usr/share/doc
