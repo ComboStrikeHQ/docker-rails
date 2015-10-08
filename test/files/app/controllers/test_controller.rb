@@ -16,6 +16,7 @@ class TestController < ApplicationController
   def message
     return 'env_failed' unless ENV['TEST_ENV'] == 'hey'
     return 'post_count_failed' unless Post.count == 2
+    return 'custom_puma_config_failed' unless Redis.current.get('on_worker_boot') == '1'
     'ok'
   end
 end

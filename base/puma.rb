@@ -12,4 +12,4 @@ on_worker_boot do
 end
 
 custom_config = '/home/app/webapp/config/puma.rb'
-load custom_config if File.exist?(custom_config)
+instance_eval(File.read(custom_config)) if File.exist?(custom_config)
