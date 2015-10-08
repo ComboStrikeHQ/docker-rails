@@ -45,7 +45,8 @@ COPY sidekiq.sh /etc/service/sidekiq/run
 COPY appserver.sh /etc/service/appserver/run
 
 COPY syslog-ng.logentries.conf /etc/
-COPY puma.rb /etc/puma.rb
+COPY puma.rb /etc/
+COPY sidekiq.yml /etc/
 
 RUN useradd -m app
 RUN mkdir /home/app/webapp && chown app:app -R /home/app
