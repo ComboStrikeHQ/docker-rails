@@ -33,11 +33,14 @@ and replace `<VERSION>` with the [current version number](CHANGELOG.md).
 
 Add more docker steps if needed (usually not), build and deploy to your infrastructure.
 
+We use [eb_deployer](https://github.com/ThoughtWorksStudios/eb_deployer) to deploy our apps
+to [AWS Elastic Beanstalk](https://aws.amazon.com/de/elasticbeanstalk/).
+
 ## Contents
 
 ### Rails App Server / Puma
-We use [Puma](http://puma.io/) as the web server for our app. For this to work properly, please
-add the following gems to your Gemfile:
+[Puma](http://puma.io/) is used as the web server for your app.
+For this to work properly, please add the following gems to your Gemfile:
 
 ```ruby
 gem 'puma'
@@ -57,7 +60,7 @@ You can also create a `config/puma.rb` file in your app that contains additional
 Have a look at the [Puma configuration file](base/puma.rb) for more details.
 
 ### Sidekiq
-We use [Sidekiq](http://sidekiq.org/) for processing background jobs. A sidekiq process
+[Sidekiq](http://sidekiq.org/) is used for processing background jobs. A sidekiq process
 will be automatically started when the `sidekiq` gem is present in your app. Using sidekiq is
 optional.
 
@@ -72,13 +75,11 @@ You can also create a `config/sidekiq.yml` file in your app that contains additi
 The default configuration enables the `default` and `mailers` queues.
 
 ### Logging / Logentries
-We use [Logentries](https://logentries.com/) for application logging. If you provide a
+[Logentries](https://logentries.com/) is used for application logging. If you provide a
 Logentries token, app server and sidekiq log output if forwarded to Logentries. Using Logentries
 is optional.
 
 We recommend using the [lograge](https://github.com/roidrage/lograge) gem for better log output.
-
-You can configure Logentries logging:
 
 Environment Variable | Description | Default Value
 --- | --- | ---
@@ -87,13 +88,13 @@ LOGENTRIES_API_TOKEN | Your Logentries token | _empty/disabled_
 Have a look at the [syslog-ng configuration file](base/syslog-ng.logentries.conf) for more details.
 
 ### Rails Migrations / rails_migrate_mutex
-We use [rails_migrate_mutex](https://github.com/ad2games/rails_migrate_mutex) to run Rails
+[rails_migrate_mutex](https://github.com/ad2games/rails_migrate_mutex) is used to run Rails
 migrations. If you have the gem installed in you app, migrations are automatically run on
 container startup. Using rails_migrate_mutex is optional.
 
 ### New Relic Server Monitor
-We use the [New Relic Server Monitor](http://newrelic.com/server-monitoring) to monitor our
-containers. If you provide a New Relic token, the server monitor daemon starts automatically.
+The [New Relic Server Monitor](http://newrelic.com/server-monitoring) is used to monitor
+the containers. If you provide a New Relic token, the server monitor daemon starts automatically.
 Using New Relic Server Monitoring is optional.
 
 Environment Variable | Description | Default Value
