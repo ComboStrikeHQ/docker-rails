@@ -26,8 +26,10 @@ The image is built by us, squashed into a single layer and pushed to
 To use it in your app, create a `Dockerfile` with the following content:
 
 ```docker
-FROM ad2games/docker-rails:latest
+FROM ad2games/docker-rails:<VERSION>
 ```
+
+and replace `<VERSION>` with the [current version number](CHANGELOG.md).
 
 Add more docker steps if needed (usually not), build and deploy to your infrastructure.
 
@@ -128,5 +130,7 @@ set to `production` and should not be changed.
 MIT, see LICENSE.txt
 
 ## Contributing
+
+Please create a new GitHub Issue if you encounter a bug or have a feature request.
 
 Feel free to fork and submit pull requests!

@@ -1,5 +1,16 @@
 #!/bin/bash -e
 
+. VERSION
+
 docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
-docker tag onbuild $DOCKER_TAG
-docker push $DOCKER_TAG
+docker tag onbuild $DOCKER_TAG:latest
+docker push $DOCKER_TAG:latest
+
+if ! docker pull $DOCKER_TAG:$VERSION; then
+  echo "Releasing new version: $VERSION"
+
+  docker tag onbuild $DOCKER_TAG:$VERSION
+  docker push $DOCKER_TAG:$VERSION
+else
+  echo "Not overwriting existing version: $VERSION"
+fi
