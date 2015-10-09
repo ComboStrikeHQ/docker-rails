@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 (2015-10-09)
+
+- Add clockwork support
+
 ## 1.0.2 (2015-10-09)
 
 - Fix sidekiq default queues precedence

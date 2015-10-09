@@ -4,7 +4,8 @@
 
 An opinionated docker image for running Rails apps in production.
 
-Uses Puma, Sidekiq, Logentries, New Relic and rails_migrate_mutex. Everything is optional.
+Uses Puma, Sidekiq, Clockwork, Logentries, New Relic and rails_migrate_mutex.
+Everything is optional.
 
 ## Quick Example
 - Create a new Rails app (`$ rails new my_blog`)
@@ -74,10 +75,26 @@ You can also create a `config/sidekiq.yml` file in your app that contains additi
 
 The default configuration enables the `default` and `mailers` queues.
 
+### Clockwork
+[Clockwork](https://github.com/tomykaira/clockwork) is used for scheduling background jobs.
+A clockwork process will be automatically started when the `clockwork` gem is present in your app.
+Using clockwork is optional.
+
+You need to create a `config/clockwork.rb` file using the following schema:
+```ruby
+module Clockwork
+  every(1.hour, 'my_job') { MyWorker.perform_async }
+end
+```
+
+Note that the clockwork process is started in every container. We recommend using
+[sidekiq-unique-jobs](https://github.com/mhenrixon/sidekiq-unique-jobs) to ensure that jobs
+are scheduled only once.
+
 ### Logging / Logentries
 [Logentries](https://logentries.com/) is used for application logging. If you provide a
-Logentries token, app server and sidekiq log output if forwarded to Logentries. Using Logentries
-is optional.
+Logentries token, app server, sidekiq and clockwork log output if forwarded to Logentries.
+Using Logentries is optional.
 
 We recommend using the [lograge](https://github.com/roidrage/lograge) gem for better log output.
 

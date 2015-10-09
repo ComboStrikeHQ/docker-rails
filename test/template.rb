@@ -3,6 +3,7 @@ gem 'rails_12factor'
 gem 'rails_migrate_mutex'
 gem 'puma'
 gem 'sidekiq'
+gem 'clockwork'
 
 # Ensure that gems with C lib dependencies work
 gem 'sqlite3'

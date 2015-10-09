@@ -43,6 +43,7 @@ COPY db_migrate.sh /etc/my_init.d/90_db_migrate.sh
 COPY newrelic_sysmon.sh /etc/service/newrelic_sysmon/run
 COPY sidekiq.sh /etc/service/sidekiq/run
 COPY appserver.sh /etc/service/appserver/run
+COPY clockwork.sh /etc/service/clockwork/run
 
 COPY syslog-ng.logentries.conf /etc/
 COPY puma.rb /etc/
