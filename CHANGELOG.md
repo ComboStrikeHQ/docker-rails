@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 (2015-10-10)
+
+- Also log stderr output for all processes
+
 ## 1.1.0 (2015-10-09)
 
 - Add clockwork support
