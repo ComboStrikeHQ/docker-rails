@@ -45,6 +45,7 @@ For this to work properly, please add the following gems to your Gemfile:
 
 ```ruby
 gem 'puma'
+gem 'rack-timeout'
 gem 'rails_12factor', group: :production
 ```
 
