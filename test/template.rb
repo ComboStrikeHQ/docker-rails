@@ -2,6 +2,7 @@
 gem 'rails_12factor'
 gem 'rails_migrate_mutex'
 gem 'puma'
+gem 'rack-timeout'
 gem 'sidekiq'
 gem 'clockwork'
 
