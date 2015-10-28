@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 1.2.0 (2015-10-28)
+
 - Add gzip compression for asset files
 
 ## 1.1.1 (2015-10-10)
