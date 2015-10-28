@@ -3,6 +3,7 @@
 ## master (unreleased)
 
 - Add prefix to docker tags (for development only)
+- Use COPY in ONBUILD Dockerfile
 
 ## 1.2.0 (2015-10-28)
 
