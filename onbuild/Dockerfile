@@ -1,4 +1,4 @@
-FROM base-squashed
+FROM docker-rails-base-squashed
 
 ENV RACK_ENV=production RAILS_ENV=production
 
