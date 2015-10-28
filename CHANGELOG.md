@@ -1,5 +1,9 @@
 # Changelog
 
+## master (unreleased)
+
+- Add gzip compression for asset files
+
 ## 1.1.1 (2015-10-10)
 
 - Also log stderr output for all processes

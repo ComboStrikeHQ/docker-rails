@@ -45,4 +45,8 @@ testapp_run ruby -r openssl -e puts
 RESULT=$(testapp_run node -p '1+1')
 [[ "$RESULT" == "2"* ]] || exit 1
 
+# Check that asset gzipping works
+FILE="/home/app/webapp/public/assets/application-*.js"
+testapp_run bash -ec "gzip -dc < $FILE.gz |diff - $FILE"
+
 echo "Tests OK"

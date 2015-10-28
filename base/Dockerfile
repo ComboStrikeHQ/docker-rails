@@ -4,7 +4,7 @@ ENV RUBY_MAJOR "2.2"
 ENV RUBY_VERSION "2.2.3"
 
 ENV APT_PACKAGES=" \
-  git imagemagick nodejs \
+  git imagemagick nodejs p7zip-full \
   newrelic-sysmond \
   gcc g++ make patch binutils libc6-dev \
   libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
