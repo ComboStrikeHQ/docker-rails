@@ -1,10 +1,9 @@
 FROM docker-rails-base-squashed
 
 ENV RACK_ENV=production RAILS_ENV=production
-
-ONBUILD CMD ["/sbin/my_init"]
-ONBUILD EXPOSE 8080
-ONBUILD WORKDIR /home/app/webapp
+CMD ["/sbin/my_init"]
+EXPOSE 8080
+WORKDIR /home/app/webapp
 
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
 ONBUILD RUN chown app:app Gemfile Gemfile.lock && \
