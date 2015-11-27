@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 1.2.2 (2015-11-27)
+
 - Make some ONBUILD commands regular ones
 
 ## 1.2.1 (2015-11-12)
