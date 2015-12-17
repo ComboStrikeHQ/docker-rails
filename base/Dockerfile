@@ -2,6 +2,8 @@ FROM phusion/baseimage:0.9.17
 
 ENV RUBY_MAJOR "2.2"
 ENV RUBY_VERSION "2.2.4"
+ENV RUBYGEMS_VERSION="2.5.1"
+ENV BUNDLER_VERSION "1.11.2"
 
 ENV APT_PACKAGES=" \
   git imagemagick nodejs p7zip-full \
@@ -33,8 +35,8 @@ RUN curl -o ruby.tgz \
 
 ENV GEM_SPEC_CACHE "/tmp/gemspec"
 RUN echo 'gem: --no-document' > $HOME/.gemrc
-RUN gem update --system
-RUN gem install bundler
+RUN gem update --system ${RUBYGEMS_VERSION}
+RUN gem install -v ${BUNDLER_VERSION} bundler
 
 RUN rm -r /etc/service/sshd /etc/service/syslog-forwarder /etc/service/cron
 

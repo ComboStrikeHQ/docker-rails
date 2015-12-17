@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Lock rubygems and bundler version
+
 ## 1.3.0 (2015-12-17)
 
 - Upgrade to Ruby 2.2.4
