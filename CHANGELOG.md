@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 1.3.0 (2015-12-17)
+
 - Upgrade to Ruby 2.2.4
 
 ## 1.2.2 (2015-11-27)
