@@ -1,7 +1,7 @@
 FROM phusion/baseimage:0.9.17
 
 ENV RUBY_MAJOR "2.2"
-ENV RUBY_VERSION "2.2.3"
+ENV RUBY_VERSION "2.2.4"
 
 ENV APT_PACKAGES=" \
   git imagemagick nodejs p7zip-full \

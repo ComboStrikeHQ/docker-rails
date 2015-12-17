@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Upgrade to Ruby 2.2.4
+
 ## 1.2.2 (2015-11-27)
 
 - Make some ONBUILD commands regular ones
