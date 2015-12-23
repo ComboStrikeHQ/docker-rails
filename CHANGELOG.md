@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Remove manual gzipping of assets - newer sprockets versions do that automatically
 - Lock rubygems and bundler version
 
 ## 1.3.0 (2015-12-17)

@@ -6,7 +6,7 @@ ENV RUBYGEMS_VERSION="2.5.1"
 ENV BUNDLER_VERSION "1.11.2"
 
 ENV APT_PACKAGES=" \
-  git imagemagick nodejs p7zip-full \
+  git imagemagick nodejs \
   newrelic-sysmond \
   gcc g++ make patch binutils libc6-dev \
   libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \

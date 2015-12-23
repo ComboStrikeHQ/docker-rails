@@ -18,5 +18,4 @@ ONBUILD RUN bash -ec \
     touch .env; source .env; \
     chpst -u app bundle exec rake assets:precompile \
       SECRET_KEY_BASE=noop DATABASE_URL=postgres://noop ; \
-    chpst -u app find public/assets -type f -exec 7z a -tgzip -mx=9 {}.gz {} \; ; \
   fi"

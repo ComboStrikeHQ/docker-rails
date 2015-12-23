@@ -124,7 +124,7 @@ The latest ruby version is included in the container. It is compiled from source
 [jemalloc](http://www.canonware.com/jemalloc/). The latest rubygems and bundler versions
 are installed as well.
 
-The following tools are installed: `git`, `nodejs`, `imagemagick`, `curl`, `p7zip`.
+The following tools are installed: `git`, `nodejs`, `imagemagick`, `curl`.
 Development packages for compiling the following gems are included: `sqlite3`, `pg`, `nokogiri`.
 
 Have a look at the [Base Dockerfile](base/Dockerfile) for more details.
@@ -136,8 +136,8 @@ It installs all gems except those in the `development` and `test` groups.
 If the `sprockets`
 gem is present (default for Rails apps), it also precompiles assets. If you need any environment
 variables set for compiling assets, you can specify them in a `.env` file in your app root. This
-file will be sourced before running the task. Assets are then automatically gzipped with the
-highest compression available. Rails then uses these static gzip files to serve assets.
+file will be sourced before running the task. Newer versions of sprockets will also automatically
+created gzipped versions of the assets. Rails then uses these static gzip files to serve assets.
 
 Have a look at the [ONBUILD Dockerfile](onbuild/Dockerfile) for more details.
 
