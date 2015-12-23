@@ -1,17 +1,19 @@
-FROM phusion/baseimage:0.9.17
+FROM phusion/baseimage:0.9.18
 
 ENV RUBY_MAJOR "2.2"
 ENV RUBY_VERSION "2.2.4"
 ENV RUBYGEMS_VERSION="2.5.1"
 ENV BUNDLER_VERSION "1.11.2"
 
-ENV APT_PACKAGES=" \
+ENV APT_PACKAGES " \
   git imagemagick nodejs \
   newrelic-sysmond \
   gcc g++ make patch binutils libc6-dev \
   libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
   libxml2-dev libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev \
 "
+
+ENV APT_REMOVE_PACKAGES "cron openssh-server"
 
 RUN echo "deb http://apt.newrelic.com/debian/ newrelic non-free" \
   > /etc/apt/sources.list.d/newrelic.list
@@ -20,6 +22,7 @@ RUN curl https://download.newrelic.com/548C16BF.gpg |apt-key add -
 COPY apt.conf /etc/apt/apt.conf.d/local
 RUN apt-get update && apt-get -y dist-upgrade
 RUN apt-get install -y $APT_PACKAGES
+RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
 RUN apt-get autoremove --purge -y
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
@@ -38,6 +41,7 @@ RUN echo 'gem: --no-document' > $HOME/.gemrc
 RUN gem update --system ${RUBYGEMS_VERSION}
 RUN gem install -v ${BUNDLER_VERSION} bundler
 
+RUN rm /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN rm -r /etc/service/sshd /etc/service/syslog-forwarder /etc/service/cron
 
 COPY logentries.sh /etc/my_init.d/10_logentries.sh
