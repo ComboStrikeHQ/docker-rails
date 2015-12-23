@@ -2,11 +2,12 @@ FROM phusion/baseimage:0.9.18
 
 ENV RUBY_MAJOR "2.2"
 ENV RUBY_VERSION "2.2.4"
-ENV RUBYGEMS_VERSION="2.5.1"
+ENV RUBYGEMS_VERSION "2.5.1"
 ENV BUNDLER_VERSION "1.11.2"
+ENV NODE_VERSION "5.3.0"
 
 ENV APT_PACKAGES " \
-  git imagemagick nodejs \
+  git imagemagick \
   newrelic-sysmond \
   gcc g++ make patch binutils libc6-dev \
   libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
@@ -25,8 +26,6 @@ RUN apt-get install -y $APT_PACKAGES
 RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
 RUN apt-get autoremove --purge -y
 
-RUN ln -s /usr/bin/nodejs /usr/bin/node
-
 WORKDIR /tmp
 RUN curl -o ruby.tgz \
     "https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR}/ruby-${RUBY_VERSION}.tar.gz" && \
@@ -40,6 +39,9 @@ ENV GEM_SPEC_CACHE "/tmp/gemspec"
 RUN echo 'gem: --no-document' > $HOME/.gemrc
 RUN gem update --system ${RUBYGEMS_VERSION}
 RUN gem install -v ${BUNDLER_VERSION} bundler
+
+RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
+  |tar -xz -C /usr --strip-components=1
 
 RUN rm /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN rm -r /etc/service/sshd /etc/service/syslog-forwarder /etc/service/cron
