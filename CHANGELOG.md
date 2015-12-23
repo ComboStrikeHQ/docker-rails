@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Allow writing to vendor directory during ONBUILD
 - Set HOME in ONBUILD Dockerfile
 - Add bower
 - Use recent nodejs version

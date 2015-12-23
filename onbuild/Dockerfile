@@ -11,7 +11,7 @@ ONBUILD RUN chown app:app Gemfile Gemfile.lock && \
   find vendor/bundle -name *.gem -delete
 
 ONBUILD COPY . /home/app/webapp/
-ONBUILD RUN mkdir -p db public/assets log tmp && chown -R app:app db public log tmp
+ONBUILD RUN mkdir -p db public/assets log tmp vendor && chown -R app:app db public log tmp vendor
 
 ONBUILD RUN bash -ec \
   "if chpst -u app bundle show sprockets; then \
