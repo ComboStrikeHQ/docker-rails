@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Set HOME in ONBUILD Dockerfile
 - Add bower
 - Use recent nodejs version
 - Update to baseimage-docker 0.9.18

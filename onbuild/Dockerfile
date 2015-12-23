@@ -1,6 +1,6 @@
 FROM docker-rails-base-squashed
 
-ENV RACK_ENV=production RAILS_ENV=production
+ENV RACK_ENV=production RAILS_ENV=production HOME=/home/app
 CMD ["/sbin/my_init"]
 EXPOSE 8080
 WORKDIR /home/app/webapp
