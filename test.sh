@@ -41,9 +41,11 @@ testapp_run bash -c "ldd /usr/local/bin/ruby |grep jemalloc"
 testapp_run ruby -r readline -e puts
 testapp_run ruby -r openssl -e puts
 
-# Check that nodejs is present
+# Check that nodejs, npm and bower are present
 RESULT=$(testapp_run node -p '1+1')
 [[ "$RESULT" == "2"* ]] || exit 1
+testapp_run npm -v
+testapp_run bower -v
 
 # Check that asset gzipping works
 FILE="/home/app/webapp/public/assets/application-*.js"

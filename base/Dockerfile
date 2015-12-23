@@ -5,6 +5,7 @@ ENV RUBY_VERSION "2.2.4"
 ENV RUBYGEMS_VERSION "2.5.1"
 ENV BUNDLER_VERSION "1.11.2"
 ENV NODE_VERSION "5.3.0"
+ENV BOWER_VERSION "1.7.1"
 
 ENV APT_PACKAGES " \
   git imagemagick \
@@ -42,6 +43,7 @@ RUN gem install -v ${BUNDLER_VERSION} bundler
 
 RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
   |tar -xz -C /usr --strip-components=1
+RUN npm install bower@${BOWER_VERSION} -g
 
 RUN rm /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN rm -r /etc/service/sshd /etc/service/syslog-forwarder /etc/service/cron

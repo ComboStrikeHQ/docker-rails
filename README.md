@@ -124,7 +124,7 @@ The latest ruby version is included in the container. It is compiled from source
 [jemalloc](http://www.canonware.com/jemalloc/). The latest rubygems and bundler versions
 are installed as well.
 
-The following tools are installed: `git`, `nodejs`, `imagemagick`, `curl`.
+The following tools are installed: `git`, `nodejs`, `imagemagick`, `curl`, `bower`.
 Development packages for compiling the following gems are included: `sqlite3`, `pg`, `nokogiri`.
 
 Have a look at the [Base Dockerfile](base/Dockerfile) for more details.

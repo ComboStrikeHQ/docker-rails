@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Add bower
 - Use recent nodejs version
 - Update to baseimage-docker 0.9.18
 - Remove manual gzipping of assets - newer sprockets versions do that automatically
