@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Upgrade to Ruby 2.3.0
 - Upgrade to nodejs 5.3.1 and bower 1.7.2
 - Ruby: Enable shared lib and remove static lib
 - Speed up tests by removing one `bundle install` call
