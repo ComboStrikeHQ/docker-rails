@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Ruby: Enable shared lib and remove static lib
 - Speed up tests by removing one `bundle install` call
 
 ## 1.4.0 (2015-12-23)

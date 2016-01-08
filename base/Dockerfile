@@ -32,9 +32,10 @@ RUN curl -o ruby.tgz \
     "https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR}/ruby-${RUBY_VERSION}.tar.gz" && \
   tar -xzf ruby.tgz && \
   cd ruby-${RUBY_VERSION} && \
-  ./configure --with-jemalloc --disable-install-doc && \
+  ./configure --enable-shared --with-jemalloc --disable-install-doc && \
   make -j4 && \
-  make install
+  make install && \
+  rm /usr/local/lib/libruby-static.a
 
 ENV GEM_SPEC_CACHE "/tmp/gemspec"
 RUN echo 'gem: --no-document' > $HOME/.gemrc
