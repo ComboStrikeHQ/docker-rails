@@ -11,8 +11,9 @@ cd test
 rm -rf testapp
 
 # Set up testing rails app
-gem install rails
-rails new testapp -d postgresql -m template.rb
+gem install bundler rails
+rails new testapp -d postgresql -m template.rb --skip-bundle
+cd testapp; bundle lock; cd ..
 cp -r files/* testapp
 
 # Build container

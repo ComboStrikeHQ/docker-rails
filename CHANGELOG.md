@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Speed up tests by removing one `bundle install` call
+
 ## 1.4.0 (2015-12-23)
 
 - Allow writing to vendor directory during ONBUILD
