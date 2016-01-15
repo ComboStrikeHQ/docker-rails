@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 1.5.0 (2016-01-15)
+
 - Upgrade to Ruby 2.3.0
 - Upgrade to nodejs 5.3.1 and bower 1.7.2
 - Ruby: Enable shared lib and remove static lib
