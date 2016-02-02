@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+- Upgrade bower to 1.7.6
+- Upgrade rubygems to 2.5.2
+- Upgrade nodejs to 5.5.0
+
 ## 1.5.0 (2016-01-15)
 
 - Upgrade to Ruby 2.3.0
