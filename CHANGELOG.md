@@ -2,7 +2,7 @@
 
 ## master (unreleased)
 
-## 1.6.0 (2015-02-02)
+## 1.6.0 (2016-02-02)
 
 - Upgrade bower to 1.7.6
 - Upgrade rubygems to 2.5.2
