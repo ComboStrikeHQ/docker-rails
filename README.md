@@ -4,8 +4,13 @@
 
 An opinionated docker image for running Rails apps in production.
 
-Uses Puma, Sidekiq, Clockwork, Logentries, New Relic and rails_migrate_mutex.
+Uses Puma, Sidekiq, Clockwork and rails_migrate_mutex.
 Everything is optional.
+
+## Warning
+NewRelic server monitor and Logentries have been removed from Version 2! We decided that
+they do not belong into the docker container but rather on the docker host. Please use/fork a 1.x.y
+version if you still want to use those services in your docker container.
 
 ## Quick Example
 - Create a new Rails app (`$ rails new my_blog`)
@@ -92,32 +97,10 @@ Note that the clockwork process is started in every container. We recommend usin
 [sidekiq-unique-jobs](https://github.com/mhenrixon/sidekiq-unique-jobs) to ensure that jobs
 are scheduled only once.
 
-### Logging / Logentries
-[Logentries](https://logentries.com/) is used for application logging. If you provide a
-Logentries token, app server, sidekiq and clockwork log output if forwarded to Logentries.
-Using Logentries is optional.
-
-We recommend using the [lograge](https://github.com/roidrage/lograge) gem for better log output.
-
-Environment Variable | Description | Default Value
---- | --- | ---
-LOGENTRIES_API_TOKEN | Your Logentries token | _empty/disabled_
-
-Have a look at the [syslog-ng configuration file](base/syslog-ng.logentries.conf) for more details.
-
 ### Rails Migrations / rails_migrate_mutex
 [rails_migrate_mutex](https://github.com/ad2games/rails_migrate_mutex) is used to run Rails
 migrations. If you have the gem installed in you app, migrations are automatically run on
 container startup. Using rails_migrate_mutex is optional.
-
-### New Relic Server Monitor
-The [New Relic Server Monitor](http://newrelic.com/server-monitoring) is used to monitor
-the containers. If you provide a New Relic token, the server monitor daemon starts automatically.
-Using New Relic Server Monitoring is optional.
-
-Environment Variable | Description | Default Value
---- | --- | ---
-NEW_RELIC_LICENSE_KEY | Your New Relic token | _empty/disabled_
 
 ### Ruby / Packages
 The latest ruby version is included in the container. It is compiled from source and uses
