@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Fix bug where everything is logged twice
+
 ## 2.0.0 (2016-02-08) BREAKING CHANGES, see README
 
 - Remove logentries and NewRelic server monitor
