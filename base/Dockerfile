@@ -9,17 +9,12 @@ ENV BOWER_VERSION "1.7.6"
 
 ENV APT_PACKAGES " \
   git imagemagick \
-  newrelic-sysmond \
   gcc g++ make patch binutils libc6-dev \
   libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
   libxml2-dev libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev \
 "
 
 ENV APT_REMOVE_PACKAGES "cron openssh-server"
-
-RUN echo "deb http://apt.newrelic.com/debian/ newrelic non-free" \
-  > /etc/apt/sources.list.d/newrelic.list
-RUN curl https://download.newrelic.com/548C16BF.gpg |apt-key add -
 
 COPY apt.conf /etc/apt/apt.conf.d/local
 RUN apt-get update && apt-get -y dist-upgrade
@@ -47,16 +42,13 @@ RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x6
 RUN npm install bower@${BOWER_VERSION} -g
 
 RUN rm /etc/my_init.d/00_regen_ssh_host_keys.sh
-RUN rm -r /etc/service/sshd /etc/service/syslog-forwarder /etc/service/cron
+RUN rm -r /etc/service/sshd /etc/service/cron
 
-COPY logentries.sh /etc/my_init.d/10_logentries.sh
 COPY db_migrate.sh /etc/my_init.d/90_db_migrate.sh
-COPY newrelic_sysmon.sh /etc/service/newrelic_sysmon/run
 COPY sidekiq.sh /etc/service/sidekiq/run
 COPY appserver.sh /etc/service/appserver/run
 COPY clockwork.sh /etc/service/clockwork/run
 
-COPY syslog-ng.logentries.conf /etc/
 COPY puma.rb /etc/
 COPY sidekiq.yml /etc/
 

@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Remove logentries and NewRelic server monitor
+
 ## 1.6.0 (2016-02-02)
 
 - Upgrade bower to 1.7.6
