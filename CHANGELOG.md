@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.0.0 (2016-02-08) BREAKING CHANGES, see README
+
 - Remove logentries and NewRelic server monitor
 
 ## 1.6.0 (2016-02-02)
