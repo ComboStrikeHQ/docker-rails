@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Upgrade rubygems, nodejs and bower
 - Do not fail in puma boot when there is no ActiveRecord
 
 ## 2.0.1 (2016-02-08)
