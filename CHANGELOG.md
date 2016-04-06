@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Do not fail in puma boot when there is no ActiveRecord
+
 ## 2.0.1 (2016-02-08)
 
 - Fix bug where everything is logged twice

@@ -8,7 +8,7 @@ bind 'tcp://0.0.0.0:8080'
 preload_app!
 
 on_worker_boot do
-  ActiveRecord::Base.establish_connection
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 end
 
 custom_config = '/home/app/webapp/config/puma.rb'
