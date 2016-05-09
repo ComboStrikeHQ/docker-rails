@@ -3,6 +3,7 @@
 ## master (unreleased)
 
 - Reduce number of layers in ONBUILD Dockerfile
+- Upgrade ruby, rubygems, bundler and nodejs
 
 ## 2.1.1 (2016-05-13)
 
