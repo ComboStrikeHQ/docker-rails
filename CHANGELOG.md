@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 2.1.1 (2016-05-13)
+
+- Allow writing to app directory during ONBUILD
+
 ## 2.1.0 (2016-04-06)
 
 - Upgrade rubygems, nodejs and bower
