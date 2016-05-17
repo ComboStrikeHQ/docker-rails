@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Reduce number of layers in ONBUILD Dockerfile
+
 ## 2.1.1 (2016-05-13)
 
 - Allow writing to app directory during ONBUILD

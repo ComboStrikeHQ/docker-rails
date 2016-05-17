@@ -11,12 +11,11 @@ ONBUILD RUN chown app:app Gemfile Gemfile.lock && \
   find vendor/bundle -name *.gem -delete
 
 ONBUILD COPY . /home/app/webapp/
-ONBUILD RUN mkdir -p db public/assets log tmp vendor
-ONBUILD RUN chown -R app:app app db public log tmp vendor
-
-ONBUILD RUN bash -ec \
-  "if chpst -u app bundle show sprockets; then \
-    touch .env; source .env; \
-    chpst -u app bundle exec rake assets:precompile \
-      SECRET_KEY_BASE=noop DATABASE_URL=postgres://noop ; \
-  fi"
+ONBUILD RUN mkdir -p db public/assets log tmp vendor && \
+  chown -R app:app app db public log tmp vendor && \
+  bash -ec \
+    "if chpst -u app bundle show sprockets; then \
+      touch .env; source .env; \
+      chpst -u app bundle exec rake assets:precompile \
+        SECRET_KEY_BASE=noop DATABASE_URL=postgres://noop ; \
+    fi"
