@@ -3,7 +3,7 @@ machine:
     - docker
 dependencies:
   post:
-    - sudo pip install docker-compose==1.3.3
+    - docker version
     - gem install rubocop
 test:
   pre:
