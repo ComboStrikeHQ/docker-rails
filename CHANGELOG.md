@@ -4,6 +4,7 @@
 
 - Reduce number of layers in ONBUILD Dockerfile
 - Upgrade ruby, rubygems, bundler and nodejs
+- Fix graceful shutdown for Puma workers
 
 ## 2.1.1 (2016-05-13)
 
