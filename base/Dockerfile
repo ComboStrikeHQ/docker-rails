@@ -51,6 +51,7 @@ COPY clockwork.sh /etc/service/clockwork/run
 
 COPY puma.rb /etc/
 COPY sidekiq.yml /etc/
+COPY clockwork.rb /etc/
 
 RUN useradd -m app
 RUN mkdir /home/app/webapp && chown app:app -R /home/app

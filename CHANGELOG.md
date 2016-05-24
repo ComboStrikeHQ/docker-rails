@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Add proper exit handling for Clockwork
+
 ## 2.2.0 (2016-05-18)
 
 - Reduce number of layers in ONBUILD Dockerfile
