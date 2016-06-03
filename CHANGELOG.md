@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.2.1 (2016-06-03)
+
 - Add proper exit handling for Clockwork
 
 ## 2.2.0 (2016-05-18)
