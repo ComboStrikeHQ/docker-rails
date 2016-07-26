@@ -1,10 +1,10 @@
-FROM phusion/baseimage:0.9.18
+FROM phusion/baseimage:0.9.19
 
 ENV RUBY_MAJOR "2.3"
 ENV RUBY_VERSION "2.3.1"
-ENV RUBYGEMS_VERSION "2.6.4"
-ENV BUNDLER_VERSION "1.12.4"
-ENV NODE_VERSION "6.1.0"
+ENV RUBYGEMS_VERSION "2.6.6"
+ENV BUNDLER_VERSION "1.12.5"
+ENV NODE_VERSION "6.3.1"
 ENV BOWER_VERSION "1.7.9"
 
 ENV APT_PACKAGES " \
@@ -14,7 +14,7 @@ ENV APT_PACKAGES " \
   libxml2-dev libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev \
 "
 
-ENV APT_REMOVE_PACKAGES "cron openssh-server"
+ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
 
 COPY apt.conf /etc/apt/apt.conf.d/local
 RUN apt-get update && apt-get -y dist-upgrade

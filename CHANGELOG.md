@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Upgrade baseimage, rubygems, bundler and node
+
 ## 2.2.1 (2016-06-03)
 
 - Add proper exit handling for Clockwork

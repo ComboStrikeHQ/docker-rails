@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 workers ENV.fetch('PUMA_WORKERS', `nproc`).to_i
 
 max_threads = ENV.fetch('PUMA_MAX_THREADS', 16).to_i
