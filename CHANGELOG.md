@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.4.0 (2016-08-31)
+
 - Add support for mysql2 gem
 - Clean up README
 
