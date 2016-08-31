@@ -7,18 +7,13 @@ An opinionated docker image for running Rails apps in production.
 Uses Puma, Sidekiq, Clockwork and rails_migrate_mutex.
 Everything is optional.
 
-## Warning
-NewRelic server monitor and Logentries have been removed from Version 2! We decided that
-they do not belong into the docker container but rather on the docker host. Please use/fork a 1.x.y
-version if you still want to use those services in your docker container.
-
 ## Quick Example
 - Create a new Rails app (`$ rails new my_blog`)
 - Create a `Dockerfile` in the app root with this content: `FROM ad2games/docker-rails:latest`
 - Add `gem 'puma'` to the `Gemfile` and run `bundle install`
 - Build the docker container: `$ docker build -t my_blog .`
 - Run the container: `$ docker run -p 8080:8080 -e RAILS_ENV=development my_blog`
-- Open `http://localhost:8080` (use `docker-machine ip <name>` output on OS X)
+- Open `http://localhost:8080`
 - Enjoy!
 
 This example is for demo purposes only.

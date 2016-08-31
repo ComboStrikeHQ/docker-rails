@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Clean up README
+
 ## 2.3.0 (2016-07-26)
 
 - Upgrade baseimage, rubygems, bundler and node
