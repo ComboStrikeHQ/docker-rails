@@ -103,7 +103,8 @@ The latest ruby version is included in the container. It is compiled from source
 are installed as well.
 
 The following tools are installed: `git`, `nodejs`, `imagemagick`, `curl`, `bower`.
-Development packages for compiling the following gems are included: `sqlite3`, `pg`, `nokogiri`.
+Development packages for compiling the following gems are included:
+`sqlite3`, `pg`, `mysql2`, `nokogiri`.
 
 Have a look at the [Base Dockerfile](base/Dockerfile) for more details.
 
