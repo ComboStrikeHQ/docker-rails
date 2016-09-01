@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.4.1 (2016-09-01)
+
 - Fix asset precompilation when pg gem is not present
 
 ## 2.4.0 (2016-08-31)
