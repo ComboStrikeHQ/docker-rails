@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Fix asset precompilation when pg gem is not present
+
 ## 2.4.0 (2016-08-31)
 
 - Add support for mysql2 gem
