@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Fix application server logs missing
+
 ## 2.4.1 (2016-09-01)
 
 - Fix asset precompilation when pg gem is not present
