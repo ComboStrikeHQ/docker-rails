@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.4.2 (2016-09-19)
+
 - Fix application server logs missing
 
 ## 2.4.1 (2016-09-01)
