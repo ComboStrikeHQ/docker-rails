@@ -11,5 +11,6 @@ if [ ! -f $SIDEKIQ_CONFIG ]; then
   SIDEKIQ_CONFIG="/etc/sidekiq.yml"
 fi
 
+sv start syslog-ng
 exec chpst -u app bundle exec sidekiq -t 5 -c $SIDEKIQ_THREADS -C $SIDEKIQ_CONFIG \
   2>&1 |logger -t sidekiq

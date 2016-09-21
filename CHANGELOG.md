@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Wait for syslog-ng to start
+
 ## 2.4.2 (2016-09-19)
 
 - Fix application server logs missing
