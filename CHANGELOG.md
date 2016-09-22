@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Remove puma request logging
 - Wait for syslog-ng to start
 
 ## 2.4.2 (2016-09-19)
