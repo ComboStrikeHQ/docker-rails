@@ -44,6 +44,7 @@ RUN npm install bower@${BOWER_VERSION} -g
 RUN rm /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN rm -r /etc/service/sshd /etc/service/cron
 
+COPY wait-for-syslog.sh /opt/
 COPY db_migrate.sh /etc/my_init.d/90_db_migrate.sh
 COPY sidekiq.sh /etc/service/sidekiq/run
 COPY appserver.sh /etc/service/appserver/run
