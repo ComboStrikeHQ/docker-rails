@@ -1,6 +1,7 @@
 FROM docker-rails-base-squashed
 
-ENV RACK_ENV=production RAILS_ENV=production HOME=/home/app
+ENV RACK_ENV=production RAILS_ENV=production HOME=/home/app \
+  RAILS_LOG_TO_STDOUT=1 RAILS_SERVE_STATIC_FILES=1
 CMD ["/sbin/my_init"]
 EXPOSE 8080
 WORKDIR /home/app/webapp

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 # Components we want to test
-gem 'rails_12factor'
 gem 'rails_migrate_mutex'
 gem 'puma'
 gem 'rack-timeout'

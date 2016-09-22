@@ -46,7 +46,7 @@ For this to work properly, please add the following gems to your Gemfile:
 ```ruby
 gem 'puma'
 gem 'rack-timeout', group: :production
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production  # only for Rails < 5
 ```
 
 You can configure Puma:
@@ -123,6 +123,12 @@ Have a look at the [ONBUILD Dockerfile](onbuild/Dockerfile) for more details.
 ### Environment Variables
 All environment variables are passed on the application. Both `RAILS_ENV` and `RACK_ENV` are
 set to `production` and should not be changed.
+
+Both `RAILS_SERVE_STATIC_FILES` and
+`RAILS_LOG_TO_STDOUT` are set, so you
+[don't need to](https://github.com/heroku/rails_12factor#rails-5-and-beyond)
+include the `rails_12factor` gem anymore if you're using Rails 5 or above and have updated
+your `config/environments/production.rb` file.
 
 ## License
 

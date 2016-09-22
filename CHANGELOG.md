@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Add support for Rails 5 native 12-factor config
 - Remove puma request logging
 - Wait for syslog-ng to start
 
