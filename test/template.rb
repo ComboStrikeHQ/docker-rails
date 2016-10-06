@@ -16,5 +16,8 @@ gem 'sassc'
 # Ensure that git works
 gem 'currencies', git: 'https://github.com/hexorx/currencies.git', tag: 'v0.4.3'
 
+# Ensure that vendored gems work
+gem 'vendor-gem', path: './vendor/vendor-gem'
+
 # Test action
 route 'root "test#index"'
