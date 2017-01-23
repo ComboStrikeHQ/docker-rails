@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Switch to NodeJS LTS
 - Add support for vendored gems
 
 ## 2.5.0 (2016-09-22)
