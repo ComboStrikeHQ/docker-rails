@@ -12,6 +12,9 @@ gem 'pg'
 gem 'mysql2'
 gem 'nokogiri'
 gem 'sassc'
+gem 'google-protobuf'
+gem 'ox'
+gem 'oj'
 
 # Ensure that git works
 gem 'currencies', git: 'https://github.com/hexorx/currencies.git', tag: 'v0.4.3'
