@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Upgrade bower
 - Switch to NodeJS LTS
 - Add support for vendored gems
 
