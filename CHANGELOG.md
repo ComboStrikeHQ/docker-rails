@@ -2,6 +2,7 @@
 
 ## master (unreleased)
 
+- Upgrade rubygems
 - Upgrade bundler
 - Upgrade bower
 - Switch to NodeJS LTS
