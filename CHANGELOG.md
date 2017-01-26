@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.6.0 (2017-01-26)
+
 - Upgrade rubygems
 - Upgrade bundler
 - Upgrade bower
