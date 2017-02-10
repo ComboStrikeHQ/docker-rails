@@ -12,6 +12,7 @@ ENV APT_PACKAGES " \
   gcc g++ make patch binutils libc6-dev \
   libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
   libxml2-dev libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
+  python2.7 \
 "
 
 ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
@@ -21,6 +22,8 @@ RUN apt-get update && apt-get -y dist-upgrade
 RUN apt-get install -y $APT_PACKAGES
 RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
 RUN apt-get autoremove --purge -y
+
+RUN ln -s /usr/bin/python2.7 /usr/bin/python2
 
 WORKDIR /tmp
 RUN curl -o ruby.tgz \
