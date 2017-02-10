@@ -6,6 +6,9 @@ CMD ["/sbin/my_init"]
 EXPOSE 8080
 WORKDIR /home/app/webapp
 
+ONBUILD ARG BUNDLE_GITHUB__COM
+ONBUILD ENV BUNDLE_GITHUB__COM ${BUNDLE_GITHUB__COM:-}
+
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
 ONBUILD COPY vendor/ /home/app/webapp/vendor/
 ONBUILD RUN chown -R app:app Gemfile Gemfile.lock vendor/ && \
