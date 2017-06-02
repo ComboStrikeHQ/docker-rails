@@ -7,6 +7,8 @@ ENV BUNDLER_VERSION "1.14.2"
 ENV NODE_VERSION "6.9.4"
 ENV BOWER_VERSION "1.8.0"
 
+RUN echo Etc/UTC > /etc/timezone
+
 ENV APT_PACKAGES " \
   git imagemagick \
   gcc g++ make patch binutils libc6-dev \
