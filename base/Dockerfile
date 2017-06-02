@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.19
+FROM phusion/baseimage:0.9.22
 
 ENV RUBY_MAJOR "2.3"
 ENV RUBY_VERSION "2.3.1"
