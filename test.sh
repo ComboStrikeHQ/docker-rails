@@ -30,7 +30,7 @@ RESULT=$(wget -O - --retry-connrefused -T 60 http://${HOST:-localhost}:8080/)
 [ "$RESULT" == "ok" ] || exit 1
 
 # Check that static file serving is enabled
-wget -O - http://${HOST:-localhost}:8080/robots.txt |grep Disallow || exit 1
+wget -O - http://${HOST:-localhost}:8080/robots.txt |grep documentation || exit 1
 
 # Check that logs are sent to STDOUT
 docker-compose logs app |grep appserver |grep "Completed 200 OK" || exit 1
