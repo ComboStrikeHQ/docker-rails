@@ -8,6 +8,8 @@ ENV NODE_VERSION "6.9.4"
 ENV BOWER_VERSION "1.8.0"
 
 RUN echo Etc/UTC > /etc/timezone
+RUN mkdir -p /usr/share/zoneinfo/Etc
+COPY UTC /usr/share/zoneinfo/Etc
 
 ENV APT_PACKAGES " \
   git imagemagick \
