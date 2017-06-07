@@ -7,15 +7,11 @@ ENV BUNDLER_VERSION "1.14.2"
 ENV NODE_VERSION "6.9.4"
 ENV BOWER_VERSION "1.8.0"
 
-RUN echo Etc/UTC > /etc/timezone
-RUN mkdir -p /usr/share/zoneinfo/Etc
-COPY UTC /usr/share/zoneinfo/Etc
-
 ENV APT_PACKAGES " \
-  git imagemagick \
-  gcc g++ make patch binutils libc6-dev \
-  libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
-  libxml2-dev libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
+  git imagemagick gcc g++ make patch binutils libc6-dev libjemalloc-dev \
+  libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev libxml2-dev \
+  libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
+  tzdata \
 "
 
 ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
