@@ -20,5 +20,13 @@ on_worker_boot do
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 end
 
+# As we are preloading our application and using ActiveRecord
+# it's recommended that we close any connections to the database here to prevent connection leakage
+# This rule also applies to any connections to external services (Redis, databases, memcache, ...) 
+# that might be started automatically by the framework.
+before_fork do
+  ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
+end
+
 custom_config = '/home/app/webapp/config/puma.rb'
 instance_eval(File.read(custom_config)) if File.exist?(custom_config)
