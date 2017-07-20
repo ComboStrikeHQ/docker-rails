@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 2.6.1 (2017-07-20)
+
+- Close Active Record connections [PR #15](https://github.com/ad2games/docker-rails/pull/15)
+
 ## 2.6.0 (2017-01-26)
 
 - Upgrade rubygems
