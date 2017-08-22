@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 workers ENV.fetch('PUMA_WORKERS', `nproc`).to_i
 
 max_threads = ENV.fetch('PUMA_MAX_THREADS', 16).to_i
@@ -22,7 +23,7 @@ end
 
 # As we are preloading our application and using ActiveRecord
 # it's recommended that we close any connections to the database here to prevent connection leakage
-# This rule also applies to any connections to external services (Redis, databases, memcache, ...) 
+# This rule also applies to any connections to external services (Redis, databases, memcache, ...)
 # that might be started automatically by the framework.
 before_fork do
   ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
