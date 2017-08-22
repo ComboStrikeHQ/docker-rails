@@ -1,24 +1,26 @@
-FROM phusion/baseimage:0.9.19
+FROM phusion/baseimage:0.9.22
 
-ENV RUBY_MAJOR "2.3"
-ENV RUBY_VERSION "2.3.1"
-ENV RUBYGEMS_VERSION "2.6.10"
-ENV BUNDLER_VERSION "1.14.2"
-ENV NODE_VERSION "6.9.4"
+ENV RUBY_MAJOR "2.4"
+ENV RUBY_VERSION "2.4.1"
+ENV RUBYGEMS_VERSION "2.6.11"
+ENV BUNDLER_VERSION "1.14.6"
+ENV NODE_VERSION "6.10.1"
 ENV BOWER_VERSION "1.8.0"
 
 ENV APT_PACKAGES " \
-  git imagemagick \
-  gcc g++ make patch binutils libc6-dev \
-  libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
-  libxml2-dev libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
+  git imagemagick gcc g++ make patch binutils libc6-dev libjemalloc-dev \
+  libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev libxml2-dev \
+  libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
+  tzdata yarn \
 "
 
 ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
 
 COPY apt.conf /etc/apt/apt.conf.d/local
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+COPY yarn.list /etc/apt/sources.list.d
 RUN apt-get update && apt-get -y dist-upgrade
-RUN apt-get install -y $APT_PACKAGES
+RUN apt-get install -y --no-install-recommends $APT_PACKAGES
 RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
 RUN apt-get autoremove --purge -y
 
@@ -29,8 +31,7 @@ RUN curl -o ruby.tgz \
   cd ruby-${RUBY_VERSION} && \
   ./configure --enable-shared --with-jemalloc --disable-install-doc && \
   make -j4 && \
-  make install && \
-  rm /usr/local/lib/libruby-static.a
+  make install
 
 ENV GEM_SPEC_CACHE "/tmp/gemspec"
 RUN echo 'gem: --no-document' > $HOME/.gemrc

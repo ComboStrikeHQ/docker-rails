@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class TestController < ApplicationController
   def index
     Post.create!
@@ -7,9 +8,9 @@ class TestController < ApplicationController
     TestWorker.perform_async
     sleep 2
 
-    render text: message
+    render plain: message
   rescue StandardError => error
-    render text: error
+    render plain: error
   end
 
   private
