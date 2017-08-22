@@ -7,6 +7,24 @@ function testapp_run() {
   fi
 }
 
+function check_logs {
+  local n=1
+  local max=10
+  local delay=15
+  while true; do
+    docker-compose logs app | grep "$1" | grep "$2" && break || {
+      if [[ $n -lt $max ]]; then
+        ((n++))
+        echo "Check failed. Attempt $n/$max:"
+        sleep $delay;
+      else
+        echo "Couldn't find $1.*$2 in the logs after $n attempts."
+        exit 1
+      fi
+    }
+  done
+}
+
 cd test
 rm -rf testapp
 
@@ -30,12 +48,12 @@ RESULT=$(wget -O - --retry-connrefused -T 60 http://${HOST:-localhost}:8080/)
 [ "$RESULT" == "ok" ] || exit 1
 
 # Check that static file serving is enabled
-wget -O - http://${HOST:-localhost}:8080/robots.txt |grep Disallow || exit 1
+wget -O - http://${HOST:-localhost}:8080/robots.txt |grep documentation || exit 1
 
 # Check that logs are sent to STDOUT
-docker-compose logs app |grep appserver |grep "Completed 200 OK" || exit 1
-docker-compose logs app |grep sidekiq |grep "ClockworkTestWorker" || exit 1
-docker-compose logs app |grep clockwork |grep "Triggering" || exit 1
+check_logs appserver "Completed 200 OK" || exit 1
+check_logs sidekiq "ClockworkTestWorker" || exit 1
+check_logs clockwork "Triggering" || exit 1
 
 # Clean up
 docker-compose stop
