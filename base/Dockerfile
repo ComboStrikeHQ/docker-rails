@@ -17,8 +17,8 @@ ENV APT_PACKAGES " \
 ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
 
 COPY apt.conf /etc/apt/apt.conf.d/local
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get -y dist-upgrade
 RUN apt-get install -y $APT_PACKAGES
 RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
