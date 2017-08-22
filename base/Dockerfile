@@ -8,15 +8,17 @@ ENV NODE_VERSION "6.9.4"
 ENV BOWER_VERSION "1.8.0"
 
 ENV APT_PACKAGES " \
-  git imagemagick \
-  gcc g++ make patch binutils libc6-dev \
-  libjemalloc-dev libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev \
-  libxml2-dev libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
+  git imagemagick gcc g++ make patch binutils libc6-dev libjemalloc-dev \
+  libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev libxml2-dev \
+  libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
+  yarn
 "
 
 ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
 
 COPY apt.conf /etc/apt/apt.conf.d/local
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get -y dist-upgrade
 RUN apt-get install -y $APT_PACKAGES
 RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
