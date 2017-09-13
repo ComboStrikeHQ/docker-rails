@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 2.6.2 (2017-09-13)
+
+- Add `LIBRATO_AUTORUN` to sidekiq environment
+
 ## 2.6.1 (2017-07-20)
 
 - Close Active Record connections [PR #15](https://github.com/ad2games/docker-rails/pull/15)
