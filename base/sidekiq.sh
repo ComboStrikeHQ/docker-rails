@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SIDEKIQ_THREADS=${SIDEKIQ_THREADS:-16}
+LIBRATO_AUTORUN='1'
 
 cd /home/app/webapp
 
