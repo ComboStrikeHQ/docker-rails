@@ -54,6 +54,7 @@ wget -O - http://${HOST:-localhost}:8080/robots.txt |grep documentation || exit 
 check_logs appserver "Completed 200 OK" || exit 1
 check_logs sidekiq "ClockworkTestWorker" || exit 1
 check_logs clockwork "Triggering" || exit 1
+check_logs test_service "Running" || exit 1
 
 # Clean up
 docker-compose stop

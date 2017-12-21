@@ -56,6 +56,7 @@ COPY sidekiq.yml /etc/
 COPY clockwork.rb /etc/
 
 COPY rails-assets.sh /opt/
+COPY custom-services.sh /opt/
 
 RUN useradd -m app
 RUN mkdir /home/app/webapp && chown app:app -R /home/app
