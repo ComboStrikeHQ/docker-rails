@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 2.7.0 (2017-12-22)
+
+- Allow to run additional application services
+
 ## 2.6.2 (2017-09-13)
 
 - Add `LIBRATO_AUTORUN` to sidekiq environment
