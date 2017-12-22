@@ -92,6 +92,11 @@ Note that the clockwork process is started in every container. We recommend usin
 [sidekiq-unique-jobs](https://github.com/mhenrixon/sidekiq-unique-jobs) to ensure that jobs
 are scheduled only once.
 
+### Custom services
+
+You can run additional services by putting their executable files
+in the application `bin/services` folder.
+
 ### Rails Migrations / rails_migrate_mutex
 [rails_migrate_mutex](https://github.com/ad2games/rails_migrate_mutex) is used to run Rails
 migrations. If you have the gem installed in you app, migrations are automatically run on
