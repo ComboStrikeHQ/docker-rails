@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 2.7.1 (2018-01-02)
+
+- Upgrade Ruby (2.4.3)
+- Upgrade rubygems (2.6.14)
+- Upgrade bundler (1.16.1)
+
 ## 2.7.0 (2017-12-22)
 
 - Allow to run additional application services
