@@ -1,11 +1,11 @@
-FROM phusion/baseimage:0.9.22
+FROM phusion/baseimage:0.10.0
 
-ENV RUBY_MAJOR "2.4"
-ENV RUBY_VERSION "2.4.3"
-ENV RUBYGEMS_VERSION "2.6.14"
+ENV RUBY_MAJOR "2.5"
+ENV RUBY_VERSION "2.5.0"
+ENV RUBYGEMS_VERSION "2.7.4"
 ENV BUNDLER_VERSION "1.16.1"
-ENV NODE_VERSION "6.10.1"
-ENV BOWER_VERSION "1.8.0"
+ENV NODE_VERSION "8.9.4"
+ENV BOWER_VERSION "1.8.2"
 
 ENV APT_PACKAGES " \
   git imagemagick gcc g++ make patch binutils libc6-dev libjemalloc-dev \
@@ -36,7 +36,8 @@ RUN curl -o ruby.tgz \
 ENV GEM_SPEC_CACHE "/tmp/gemspec"
 RUN echo 'gem: --no-document' > $HOME/.gemrc
 RUN gem update --system ${RUBYGEMS_VERSION}
-RUN gem install -v ${BUNDLER_VERSION} bundler
+# we have to force install bundler as it is a vendored gem since rubygems 2.7.0
+RUN gem install -v ${BUNDLER_VERSION} bundler --force
 
 RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
   |tar -xz -C /usr --strip-components=1
