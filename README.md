@@ -30,7 +30,10 @@ To use it in your app, create a `Dockerfile` with the following content:
 FROM ad2games/docker-rails:<VERSION>
 ```
 
-and replace `<VERSION>` with the [current version number](CHANGELOG.md).
+and replace `<VERSION>` with the [current version number](CHANGELOG.md). You can also use the
+`ruby-2.4` or the `latest` version tag which would give you the latest version using ruby-2.4 or
+the latest unreleased version. This might be useful if you want to test against the bleeding edge
+in your testing/beta environment.
 
 Add more docker steps if needed (usually not), build and deploy to your infrastructure.
 
