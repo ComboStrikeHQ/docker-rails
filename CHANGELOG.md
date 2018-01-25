@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 2.7.2 (2018-01-25)
+
+- Introduce ruby-2.4 version tag
+
 ## 2.7.1 (2018-01-02)
 
 - Upgrade Ruby (2.4.3)
