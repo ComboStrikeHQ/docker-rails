@@ -11,7 +11,7 @@ ENV APT_PACKAGES " \
   git imagemagick gcc g++ make patch binutils libc6-dev libjemalloc-dev \
   libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev libxml2-dev \
   libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
-  tzdata yarn \
+  tzdata yarn python-pip python-dev python-setuptools \
 "
 
 ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
@@ -23,6 +23,9 @@ RUN apt-get update && apt-get -y dist-upgrade
 RUN apt-get install -y --no-install-recommends $APT_PACKAGES
 RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
 RUN apt-get autoremove --purge -y
+
+RUN pip install --upgrade pip
+RUN pip install awscli
 
 WORKDIR /tmp
 RUN curl -o ruby.tgz \
@@ -46,6 +49,7 @@ RUN rm /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN rm -r /etc/service/sshd /etc/service/cron
 
 COPY wait-for-syslog.sh /opt/
+COPY set_app_env.sh /etc/my_init.d/40_set_app_env.sh
 COPY db_migrate.sh /etc/my_init.d/90_db_migrate.sh
 COPY sidekiq.sh /etc/service/sidekiq/run
 COPY appserver.sh /etc/service/appserver/run
