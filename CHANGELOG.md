@@ -1,6 +1,8 @@
 # Changelog
 
-## master (unreleased)
+## 2.7.3 (2018-02-15)
+
+- Add `file` command
 
 ## 2.7.2 (2018-01-25)
 
