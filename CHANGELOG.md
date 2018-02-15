@@ -1,6 +1,8 @@
 # Changelog
 
-## master (unreleased)
+## 2.7.3 (2018-02-15)
+
+- Add `file` command
 
 - Upgrade Ruby (2.5.0)
 - Upgrade rubygems (2.7.4)
