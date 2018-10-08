@@ -32,6 +32,7 @@ rm -rf testapp
 gem install bundler rails
 rails new testapp -d postgresql -m template.rb --skip-bundle
 cp -r files/* testapp
+chmod 644 testapp/config/master.key
 cd testapp; bundle lock; cd ..
 
 # Build container
