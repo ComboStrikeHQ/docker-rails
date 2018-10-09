@@ -5,8 +5,8 @@
 docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
 docker tag docker-rails-onbuild $DOCKER_TAG:latest
 docker push $DOCKER_TAG:latest
-docker tag docker-rails-onbuild $DOCKER_TAG:ruby-2.4
-docker push $DOCKER_TAG:ruby-2.4
+docker tag docker-rails-onbuild $DOCKER_TAG:ruby-2.5
+docker push $DOCKER_TAG:ruby-2.5
 
 if ! docker pull $DOCKER_TAG:$VERSION; then
   echo "Releasing new version: $VERSION"

@@ -20,6 +20,7 @@ class TestController < ApplicationController
     return 'post_count_failed' unless Post.count == 2
     return 'custom_puma_config_failed' unless Redis.current.get('on_worker_boot') == '1'
     return 'clockwork_failed' unless Redis.current.get('clockwork_test') == '1'
+
     'ok'
   end
 end

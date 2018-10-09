@@ -4,6 +4,12 @@
 
 - Add `file` command
 
+- Upgrade Ruby (2.5.0)
+- Upgrade rubygems (2.7.4)
+- Upgrade bundler (1.16.1)
+- Upgrade NodeJS (8.9.4 LTS)
+- Upgrade phusion/baseimage (0.10.0)
+
 ## 2.7.2 (2018-01-25)
 
 - Introduce ruby-2.4 version tag

@@ -30,10 +30,13 @@ To use it in your app, create a `Dockerfile` with the following content:
 FROM ad2games/docker-rails:<VERSION>
 ```
 
-and replace `<VERSION>` with the [current version number](CHANGELOG.md). You can also use the
-`ruby-2.4` or the `latest` version tag which would give you the latest version using ruby-2.4 or
-the latest unreleased version. This might be useful if you want to test against the bleeding edge
-in your testing/beta environment.
+and replace `<VERSION>` with the [current version number](https://hub.docker.com/r/ad2games/docker-rails/tags/).
+You can also use the `latest` version tag which would give you the latest unreleased version. This
+might be useful if you want to test against the bleeding edge in your testing/beta environment.
+
+From version 3.0 docker-rails uses ruby 2.5. If you still use ruby 2.4 you have to use docker-rails
+versions 2.x. We also provide `ruby-2.5` and `ruby-2.4` tags that will point to the latest released
+docker-rails version for that ruby version.
 
 Add more docker steps if needed (usually not), build and deploy to your infrastructure.
 
