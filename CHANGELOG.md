@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.8.1 (2018-02-15)
+
+- Upgrade Ruby (2.5.3)
+- Upgrade rubygems (2.7.8)
+- Upgrade bundler (1.17.1)
+
 ## 2.7.3 (2018-02-15)
 
 - Add `file` command
