@@ -14,7 +14,7 @@ ONBUILD RUN chown -R app:app Gemfile Gemfile.lock vendor/ && \
 
 ONBUILD COPY . /home/app/webapp/
 ONBUILD ARG BUGSNAG_API_KEY
-ONBUILD ARG CIRCLE_BUILD_NUM
+ONBUILD ARG BUGSNAG_APP_VERSION
 ONBUILD RUN mkdir -p db public/assets log tmp vendor && \
   chown -R app:app app db public log tmp vendor && chpst -u app /opt/rails-assets.sh && \
   /opt/custom-services.sh
