@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.8.2 (2019-02-05)
+
+- Pass along `BUGSNAG_API_KEY` and `BUGSNAG_APP_VERSION` to asset precompiling
+  step
+- Update rubygems (3.0.2)
+- Update bundler (1.8.2)
+
 ## 2.8.1 (2018-11-21)
 
 - Upgrade Ruby (2.5.3)
