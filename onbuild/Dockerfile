@@ -9,7 +9,7 @@ WORKDIR /home/app/webapp
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
 ONBUILD COPY vendor/ /home/app/webapp/vendor/
 ONBUILD RUN chown -R app:app Gemfile Gemfile.lock vendor/ && \
-  chpst -u app bundle install --deployment --jobs 4 --without development test && \
+  chpst -u app bundle install --local --deployment --jobs 4 --without development test && \
   find vendor/bundle -name *.gem -delete
 
 ONBUILD COPY . /home/app/webapp/
