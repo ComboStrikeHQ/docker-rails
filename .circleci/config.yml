@@ -7,6 +7,10 @@ jobs:
       - setup_remote_docker
 
       - run:
+          name: Ruby version
+          command: ruby -v
+
+      - run:
           name: Install Docker Machine
           command: |
               base=https://github.com/docker/machine/releases/download/v0.16.0 &&
