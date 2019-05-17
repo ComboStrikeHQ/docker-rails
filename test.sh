@@ -1,5 +1,7 @@
 #!/bin/bash -xe
 
+export GEM_HOME="$(pwd)/test/testapp/vendor/gems"
+
 function testapp_run() {
   if ! docker-compose run app "$@"; then
     echo "Test '$@' failed!"
