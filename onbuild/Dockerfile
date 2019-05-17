@@ -10,14 +10,12 @@ CMD ["/sbin/my_init"]
 EXPOSE 8080
 WORKDIR /home/app/webapp
 
-ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
-ONBUILD COPY vendor/ /home/app/webapp/vendor/
+ONBUILD COPY . /home/app/webapp/
 ONBUILD RUN chown -R app:app Gemfile Gemfile.lock vendor/ && \
   ($SKIP_BUNDLE_INSTALL || \
     (chpst -u app bundle install --local --deployment --jobs 4 --without development test && \
       find vendor/bundle -name *.gem -delete))
 
-ONBUILD COPY . /home/app/webapp/
 ONBUILD ARG BUGSNAG_API_KEY
 ONBUILD ARG BUGSNAG_APP_VERSION
 ONBUILD RUN mkdir -p db public/assets log tmp vendor && \
