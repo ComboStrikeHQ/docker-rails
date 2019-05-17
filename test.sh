@@ -46,11 +46,10 @@ docker-compose rm -f
 docker-compose build
 docker-compose up -d
 
-docker-machine ls
 # Check that app server boots correctly, ENV variables are exposed and sidekiq works properly
-if [ "$DOCKER_MACHINE_NAME" != "" ]; then
-  HOST=$(docker-machine ip $DOCKER_MACHINE_NAME)
-fi
+# if [ "$DOCKER_MACHINE_NAME" != "" ]; then
+#   HOST=$(docker-machine ip $DOCKER_MACHINE_NAME)
+# fi
 RESULT=$(wget -O - --retry-connrefused -T 60 http://${HOST:-localhost}:8080/)
 [ "$RESULT" == "ok" ] || exit 1
 
