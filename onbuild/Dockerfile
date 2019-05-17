@@ -12,9 +12,8 @@ WORKDIR /home/app/webapp
 
 ONBUILD COPY . /home/app/webapp/
 ONBUILD RUN chown -R app:app Gemfile Gemfile.lock vendor/ && \
-  ($SKIP_BUNDLE_INSTALL || \
-    (chpst -u app bundle install --local --deployment --jobs 4 --without development test && \
-      find vendor/bundle -name *.gem -delete))
+    chpst -u app bundle install --local --deployment --jobs 4 --without development test && \
+      find vendor/bundle -name *.gem -delete
 
 ONBUILD ARG BUGSNAG_API_KEY
 ONBUILD ARG BUGSNAG_APP_VERSION
