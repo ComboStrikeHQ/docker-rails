@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.3
+    steps:
+      - setup_remote_docker
+
+      - run:
+          name: Install Docker Machine
+          command: |
+              base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+                curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+                sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+
+      - checkout
+
+      - run:
+          name: Build image
+          command: $(pwd)/build.sh
+
+      - run:
+          name: Run tests
+          command: $(pwd)/test.sh
