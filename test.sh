@@ -33,7 +33,10 @@ gem install bundler rails
 rails new testapp -d postgresql -m template.rb --skip-bundle
 cp -r files/* testapp
 chmod 644 testapp/config/master.key
-cd testapp; bundle lock; cd ..
+(
+  cd testapp
+  bundle package --all
+)
 
 # Build container
 docker-compose kill
@@ -42,10 +45,8 @@ docker-compose build
 docker-compose up -d
 
 # Check that app server boots correctly, ENV variables are exposed and sidekiq works properly
-if [ "$DOCKER_MACHINE_NAME" != "" ]; then
-  HOST=$(docker-machine ip $DOCKER_MACHINE_NAME)
-fi
-RESULT=$(wget -O - --retry-connrefused -T 60 http://${HOST:-localhost}:8080/)
+RESULT=$(docker run --network container:test_app_1 appropriate/curl \
+         curl -v -4 --retry 60 --retry-delay 1 --retry-connrefused http://localhost:8080/)
 [ "$RESULT" == "ok" ] || exit 1
 
 # Check that static file serving is enabled
