@@ -34,6 +34,12 @@ rails new testapp -d postgresql -m template.rb --skip-bundle
 cp -r files/* testapp
 chmod 644 testapp/config/master.key
 cd testapp; bundle lock; cd ..
+(
+  cd testapp
+  bundle lock
+  [ -d vendor/bundle ] && rm -r vendor/bundle
+  bundle install --path=vendor/bundle --deployment --jobs 4 --without development test
+)
 
 # Build container
 docker-compose kill

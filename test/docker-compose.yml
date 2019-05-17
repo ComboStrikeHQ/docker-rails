@@ -5,6 +5,7 @@ app:
     - REDIS_URL=redis://redis
     - SECRET_KEY_BASE=noop
     - TEST_ENV=hey
+    - SKIP_BUNDLE_INSTALL=1
   ports:
     - '8080:8080'
   links:
