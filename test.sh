@@ -1,6 +1,7 @@
 #!/bin/bash -xe
 
 export GEM_HOME="$(pwd)/test/testapp/vendor/gems"
+export PATH="$PATH:$GEM_HOME/bin"
 
 function testapp_run() {
   if ! docker-compose run app "$@"; then
