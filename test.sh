@@ -36,7 +36,7 @@ chmod 644 testapp/config/master.key
 (
   cd testapp
   bundle install --jobs 4 --without development test
-  bundle package
+  bundle package --all
 )
 
 # Build container
