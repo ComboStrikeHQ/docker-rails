@@ -33,11 +33,12 @@ gem install bundler rails
 rails new testapp -d postgresql -m template.rb --skip-bundle
 cp -r files/* testapp
 chmod 644 testapp/config/master.key
-(
-  cd testapp
-  bundle install --jobs 4 --without development test
-  bundle package --all
-)
+cd testapp; bundle lock; cd ..
+# (
+#   cd testapp
+#   bundle install --jobs 4 --without development test
+#   bundle package --all
+# )
 
 # Build container
 docker-compose kill
