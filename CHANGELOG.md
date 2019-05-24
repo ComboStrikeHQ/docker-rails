@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.8.3 (2019-05-24)
+
+- Port to CircleCI 2.0
+- Make it work with `bundle package` (run before building the container), so
+  fetching gems from within the container can be avoided. This is useful if you
+  want to use dependencies from private repositories and don't want to give
+  your container itself access to them.
+
 ## 2.8.2 (2019-02-05)
 
 - Pass along `BUGSNAG_API_KEY` and `BUGSNAG_APP_VERSION` to asset precompiling
