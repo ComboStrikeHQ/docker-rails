@@ -7,12 +7,11 @@ EXPOSE 8080
 WORKDIR /home/app/webapp
 
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
-ONBUILD COPY vendor/ /home/app/webapp/vendor/
-ONBUILD RUN chown -R app:app Gemfile Gemfile.lock vendor/ && \
-  chpst -u app bundle install --deployment --jobs 4 --without development test && \
-  find vendor/bundle -name *.gem -delete
-
 ONBUILD COPY . /home/app/webapp/
+ONBUILD RUN chown -R app:app .
+ONBUILD RUN chpst -u app bundle install --deployment --jobs 4 --without development test
+ONBUILD RUN find vendor/bundle -name *.gem -delete
+
 ONBUILD ARG BUGSNAG_API_KEY
 ONBUILD ARG BUGSNAG_APP_VERSION
 ONBUILD RUN mkdir -p db public/assets log tmp vendor && \
