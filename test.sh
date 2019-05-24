@@ -50,7 +50,9 @@ RESULT=$(docker run --network container:test_app_1 appropriate/curl \
 [ "$RESULT" == "ok" ] || exit 1
 
 # Check that static file serving is enabled
-wget -O - http://${HOST:-localhost}:8080/robots.txt |grep documentation || exit 1
+docker run --network container:test_app_1 appropriate/curl \
+  curl -v -4 --retry 60 --retry-delay 1 --retry-connrefused http://localhost:8080/robots.txt \
+  | grep documentation || exit 1
 
 # Check that logs are sent to STDOUT
 check_logs appserver "Completed 200 OK" || exit 1
