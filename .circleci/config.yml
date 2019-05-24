@@ -26,3 +26,9 @@ jobs:
       - run:
           name: Run tests
           command: $(pwd)/test.sh
+
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./deploy.sh
+            fi
