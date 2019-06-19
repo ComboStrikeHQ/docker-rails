@@ -6,7 +6,6 @@ CMD ["/sbin/my_init"]
 EXPOSE 8080
 WORKDIR /home/app/webapp
 
-ONBUILD ARG BUNDLE_LOCAL
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
 ONBUILD COPY . /home/app/webapp/
 ONBUILD RUN chown -R app:app .
