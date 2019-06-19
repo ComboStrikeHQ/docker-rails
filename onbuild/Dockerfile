@@ -9,7 +9,7 @@ WORKDIR /home/app/webapp
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
 ONBUILD COPY . /home/app/webapp/
 ONBUILD RUN chown -R app:app .
-ONBUILD RUN chpst -u app bundle install ${BUNDLE_LOCAL:+--local} --deployment --jobs 4 --without development test
+ONBUILD RUN chpst -u app bundle install --deployment --jobs 4 --without development test
 ONBUILD RUN find vendor/bundle -name *.gem -delete
 
 ONBUILD ARG BUGSNAG_API_KEY
