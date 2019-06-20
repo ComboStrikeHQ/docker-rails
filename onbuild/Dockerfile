@@ -14,6 +14,6 @@ ONBUILD RUN find vendor -name *.gem -delete
 
 ONBUILD ARG BUGSNAG_API_KEY
 ONBUILD ARG BUGSNAG_APP_VERSION
-ONBUILD RUN mkdir -p db public/assets log tmp vendor
+ONBUILD RUN chpst -u app mkdir -p db public/assets log tmp vendor
 ONBUILD RUN chpst -u app /opt/rails-assets.sh
 ONBUILD RUN /opt/custom-services.sh
