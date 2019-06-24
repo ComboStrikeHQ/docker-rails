@@ -11,13 +11,14 @@ ENV APT_PACKAGES " \
   git imagemagick gcc g++ make patch binutils libc6-dev libjemalloc-dev \
   libffi-dev libssl-dev libyaml-dev zlib1g-dev libgmp-dev libxml2-dev \
   libxslt1-dev libpq-dev libreadline-dev libsqlite3-dev libmysqlclient-dev \
-  tzdata yarn file \
+  tzdata yarn file google-chrome-stable\
 "
 
 ENV APT_REMOVE_PACKAGES "anacron cron openssh-server postfix"
 
 COPY apt.conf /etc/apt/apt.conf.d/local
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+COPY google-chrome.list /etc/apt/sources.list.d
 COPY yarn.list /etc/apt/sources.list.d
 RUN apt-get update && apt-get -y dist-upgrade
 RUN apt-get install -y --no-install-recommends $APT_PACKAGES
