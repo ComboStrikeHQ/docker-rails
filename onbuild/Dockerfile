@@ -1,7 +1,12 @@
 FROM docker-rails-base-squashed
 
-ENV RACK_ENV=production RAILS_ENV=production HOME=/home/app \
-  RAILS_LOG_TO_STDOUT=1 RAILS_SERVE_STATIC_FILES=1
+ENV RACK_ENV=production RAILS_ENV=production RAILS_LOG_TO_STDOUT=1 \
+  RAILS_SERVE_STATIC_FILES=1
+
+# Workaround for $HOME being ignored in phusion/baseimage.
+# See: https://github.com/phusion/baseimage-docker/issues/119#issuecomment-287970522
+RUN echo /home/app > /etc/container_environment/HOME
+
 CMD ["/sbin/my_init"]
 EXPOSE 8080
 WORKDIR /home/app/webapp
