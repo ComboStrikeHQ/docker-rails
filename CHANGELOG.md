@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.8.4 (2019-07-04)
+
+- Implement workaround for `HOME` being ignored in `phusion/baseimage`
+
 ## 2.8.3 (2019-05-24)
 
 - Port to CircleCI 2.0
