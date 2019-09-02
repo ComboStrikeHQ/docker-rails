@@ -37,7 +37,6 @@ chmod 644 testapp/config/master.key
   cd testapp
   bundle package --all
   rails webpacker:install
-  bin/webpack
 )
 
 # Build container
@@ -48,7 +47,7 @@ docker-compose up -d app redis postgres
 
 # Check that app server boots correctly, ENV variables are exposed and sidekiq works properly
 RESULT=$(docker-compose run curl -s --retry 60 --retry-delay 1 --retry-connrefused http://app:8080/)
-[ "$RESULT" == "ok" ] || exit 1
+[[ "$RESULT" =~ 'ok' ]] || exit 1
 
 # Check that static file serving is enabled
 docker-compose run curl -v \
@@ -84,7 +83,7 @@ testapp_run npm -v
 testapp_run bower -v
 
 # Check that asset gzipping works
-FILE="/home/app/webapp/public/assets/application-*.js"
+FILE="/home/app/webapp/public/packs/js/application-*.js"
 testapp_run bash -ec "gzip -dc < $FILE.gz | diff - $FILE"
 
 echo "Tests OK"
