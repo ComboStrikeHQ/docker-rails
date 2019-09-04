@@ -14,11 +14,17 @@ WORKDIR /home/app/webapp
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
 ONBUILD COPY . /home/app/webapp/
 ONBUILD RUN chown -R app:app .
-ONBUILD RUN chpst -U app bundle install --deployment --jobs 4 --without development test
-ONBUILD RUN find vendor -name *.gem -delete
 
+ONBUILD USER app
+
+ONBUILD RUN bundle install --deployment --jobs 4 --without development test
 ONBUILD ARG BUGSNAG_API_KEY
 ONBUILD ARG BUGSNAG_APP_VERSION
-ONBUILD RUN chpst -U app mkdir -p db public/assets log tmp vendor
-ONBUILD RUN chpst -U app /opt/rails-assets.sh
+ONBUILD RUN mkdir -p db public/assets log tmp vendor
+ONBUILD RUN /opt/rails-assets.sh
+
+ONBUILD USER root
+
+ONBUILD RUN find vendor -name *.gem -delete
 ONBUILD RUN /opt/custom-services.sh
+
