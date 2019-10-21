@@ -1,6 +1,6 @@
 # Docker-Rails
-[![Circle CI](https://circleci.com/gh/ad2games/docker-rails.svg?style=svg)]
-(https://circleci.com/gh/ad2games/docker-rails)
+[![Circle CI](https://circleci.com/gh/ComboStrikeHQ/docker-rails.svg?style=svg)]
+(https://circleci.com/gh/ComboStrikeHQ/docker-rails)
 
 An opinionated docker image for running Rails apps in production.
 
@@ -9,7 +9,7 @@ Everything is optional.
 
 ## Quick Example
 - Create a new Rails app (`$ rails new my_blog`)
-- Create a `Dockerfile` in the app root with this content: `FROM ad2games/docker-rails:latest`
+- Create a `Dockerfile` in the app root with this content: `FROM combostrikehq/docker-rails:latest`
 - Add `gem 'puma'` to the `Gemfile` and run `bundle install`
 - Build the docker container: `$ docker build -t my_blog .`
 - Run the container: `$ docker run -p 8080:8080 -e RAILS_ENV=development my_blog`
@@ -22,15 +22,15 @@ Please read the whole README before using.
 
 ## Docker Image
 The image is built by us, squashed into a single layer and pushed to
-[Docker Hub](https://registry.hub.docker.com/u/ad2games/docker-rails/).
+[Docker Hub](https://registry.hub.docker.com/u/combostrikehq/docker-rails/).
 
 To use it in your app, create a `Dockerfile` with the following content:
 
 ```docker
-FROM ad2games/docker-rails:<VERSION>
+FROM combostrikehq/docker-rails:<VERSION>
 ```
 
-and replace `<VERSION>` with the [current version number](https://hub.docker.com/r/ad2games/docker-rails/tags/).
+and replace `<VERSION>` with the [current version number](https://hub.docker.com/r/combostrikehq/docker-rails/tags/).
 You can also use the `latest` version tag which would give you the latest unreleased version. This
 might be useful if you want to test against the bleeding edge in your testing/beta environment.
 
@@ -104,7 +104,7 @@ You can run additional services by putting their executable files
 in the application `bin/services` folder.
 
 ### Rails Migrations / rails_migrate_mutex
-[rails_migrate_mutex](https://github.com/ad2games/rails_migrate_mutex) is used to run Rails
+[rails_migrate_mutex](https://github.com/combostrikehq/rails_migrate_mutex) is used to run Rails
 migrations. If you have the gem installed in you app, migrations are automatically run on
 container startup. Using rails_migrate_mutex is optional.
 
