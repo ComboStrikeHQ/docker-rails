@@ -1,4 +1,4 @@
-Copyright (c) 2015 ad2games GmbH
+Copyright (c) 2019 ComboStrike GmbH
 
 MIT License
 
