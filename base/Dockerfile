@@ -26,6 +26,8 @@ RUN apt-get install -y --no-install-recommends $APT_PACKAGES
 RUN apt-get remove --purge -y $APT_REMOVE_PACKAGES
 RUN apt-get autoremove --purge -y
 
+RUN update-ca-certificates
+
 WORKDIR /tmp
 RUN curl -o ruby.tgz \
     "https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR}/ruby-${RUBY_VERSION}.tar.gz" && \
