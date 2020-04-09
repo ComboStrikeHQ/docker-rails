@@ -30,7 +30,7 @@ rm -rf testapp
 
 # Set up testing rails app
 gem install bundler rails
-rails new testapp -d postgresql -m template.rb --skip-bundle
+rails new testapp -d postgresql -m template.rb
 cp -r files/* testapp
 chmod 644 testapp/config/master.key
 (
