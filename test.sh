@@ -35,6 +35,7 @@ cp -r files/* testapp
 chmod 644 testapp/config/master.key
 (
   cd testapp
+  bundle install
   bundle package --all
   rails webpacker:install
 )
