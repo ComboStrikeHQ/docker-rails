@@ -12,5 +12,5 @@ if [ ! -f $SIDEKIQ_CONFIG ]; then
 fi
 
 /opt/wait-for-syslog.sh
-exec chpst -u app bundle exec sidekiq -t 5 -c $SIDEKIQ_THREADS -C $SIDEKIQ_CONFIG \
+exec chpst -u app bundle exec sidekiq -e $RAILS_ENV -t 5 -c $SIDEKIQ_THREADS -C $SIDEKIQ_CONFIG \
   2>&1 |logger -t sidekiq
