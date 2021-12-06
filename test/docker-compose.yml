@@ -3,10 +3,11 @@ services:
   app:
     build: testapp
     environment:
-      - DATABASE_URL=postgresql://postgres:mysecretpassword@postgres/postgres
+      - DATABASE_URL=postgresql://postgres@postgres/postgres
       - REDIS_URL=redis://redis
       - SECRET_KEY_BASE=noop
       - TEST_ENV=hey
+      - NODE_DISABLE_COLORS=1
     ports:
       - '8080:8080'
     links:
@@ -16,5 +17,7 @@ services:
     image: redis:4
   postgres:
     image: postgres:9.6
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
   curl:
     image: appropriate/curl

@@ -17,7 +17,9 @@ ONBUILD RUN chown -R app:app .
 
 ONBUILD USER app
 
-ONBUILD RUN bundle install --deployment --jobs 4 --without development test
+ONBUILD RUN bundle config set --local deployment 'true'
+ONBUILD RUN bundle config set --local without 'development test'
+ONBUILD RUN bundle install --jobs 4
 ONBUILD ARG BUGSNAG_API_KEY
 ONBUILD ARG BUGSNAG_APP_VERSION
 ONBUILD RUN mkdir -p db public/assets log tmp vendor

@@ -2,14 +2,13 @@
 
 # Components we want to test
 gem 'rails_migrate_mutex'
-gem 'puma'
 gem 'rack-timeout'
 gem 'sidekiq'
 gem 'clockwork'
+gem 'rake'
 
 # Ensure that gems with C lib dependencies work
 gem 'sqlite3'
-gem 'pg'
 gem 'mysql2'
 gem 'nokogiri'
 gem 'sassc'
