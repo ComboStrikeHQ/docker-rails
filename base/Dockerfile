@@ -1,9 +1,8 @@
 FROM phusion/baseimage:focal-1.0.0
 
 ENV RUBY_MAJOR "2.5"
-ENV RUBY_VERSION "2.5.9"
+ENV RUBY_VERSION "2.5.3"
 ENV RUBYGEMS_VERSION "3.0.2"
-ENV BUNDLER_VERSION "2.2.32"
 ENV NODE_VERSION "10.24.1"
 ENV BOWER_VERSION "1.8.2"
 
@@ -38,8 +37,6 @@ RUN curl -o ruby.tgz \
 ENV GEM_SPEC_CACHE "/tmp/gemspec"
 RUN echo 'gem: --no-document' > $HOME/.gemrc
 RUN gem update --system ${RUBYGEMS_VERSION}
-# we have to force install bundler as it is a vendored gem since rubygems 2.7.0
-RUN gem install -v ${BUNDLER_VERSION} bundler --force
 
 RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
   |tar -xz -C /usr --strip-components=1
@@ -62,6 +59,7 @@ COPY rails-assets.sh /opt/
 COPY custom-services.sh /opt/
 
 RUN useradd -m app
+COPY bundle_config /home/app/.bundle/config
 RUN mkdir /home/app/webapp && chown app:app -R /home/app
 
 RUN rm -rf /tmp/* /var/tmp/* /var/lib/apt /var/lib/dpkg /usr/share/man /usr/share/doc
