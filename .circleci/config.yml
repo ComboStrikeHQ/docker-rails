@@ -2,19 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/ruby:2.5.3-node
+      - image: circleci/ruby:2.5.3-node
     steps:
       - setup_remote_docker
 
       - run:
           name: Ruby version
           command: ruby -v
-
-      - run:
-          name: Install Sqlite3 libs
-          command: |
-              sudo apt-get update
-              sudo apt-get install libsqlite3-dev
 
       - run:
           name: Install Docker Machine
