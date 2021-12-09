@@ -12,12 +12,13 @@ EXPOSE 8080
 WORKDIR /home/app/webapp
 
 ONBUILD COPY Gemfile Gemfile.lock /home/app/webapp/
+ONBUILD RUN gem install bundler -v "$(grep -A 1 'BUNDLED WITH' Gemfile.lock | grep -Po '[\d.]+')" --force
 ONBUILD COPY . /home/app/webapp/
 ONBUILD RUN chown -R app:app .
 
 ONBUILD USER app
 
-ONBUILD RUN bundle install --deployment --jobs 4 --without development test
+ONBUILD RUN bundle install --jobs 4
 ONBUILD ARG BUGSNAG_API_KEY
 ONBUILD ARG BUGSNAG_APP_VERSION
 ONBUILD RUN mkdir -p db public/assets log tmp vendor

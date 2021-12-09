@@ -35,12 +35,13 @@ cp -r files/* testapp
 chmod 644 testapp/config/master.key
 (
   cd testapp
-  bundle package --all
+  bundle config set cache_all true
+  bundle package
   rails webpacker:install
 )
 
 # Build container
-docker-compose kill
+docker-compose kill || true
 docker-compose rm -f
 docker-compose build
 docker-compose up -d app redis postgres
