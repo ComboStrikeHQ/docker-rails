@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.8.5 (2021-12-09)
+
+- Explicitly set sidekiq environment to `RAILS_ENV`
+
 ## 2.8.4 (2019-07-04)
 
 - Implement workaround for `HOME` being ignored in `phusion/baseimage`
