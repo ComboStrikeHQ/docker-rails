@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.5.3-node
+      - image: circleci/ruby:2.7.3-node
     steps:
       - setup_remote_docker
 
