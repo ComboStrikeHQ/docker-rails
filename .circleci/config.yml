@@ -17,12 +17,6 @@ jobs:
                 curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
                 sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 
-      - run:
-          name: Install node
-          command: |
-              curl https://nodejs.org/download/release/v10.24.1/node-v10.24.1-linux-x64.tar.gz \
-              | sudo tar -xz -C /usr/local --strip-components=1
-
       - checkout
 
       - run:
