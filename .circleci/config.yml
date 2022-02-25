@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.5.3-node
+      - image: circleci/ruby:2.7.3-node
     steps:
       - setup_remote_docker
 
@@ -16,12 +16,6 @@ jobs:
               base=https://github.com/docker/machine/releases/download/v0.16.0 &&
                 curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
                 sudo install /tmp/docker-machine /usr/local/bin/docker-machine
-
-      - run:
-          name: Install node
-          command: |
-              curl https://nodejs.org/download/release/v10.24.1/node-v10.24.1-linux-x64.tar.gz \
-              | sudo tar -xz -C /usr/local --strip-components=1
 
       - checkout
 
