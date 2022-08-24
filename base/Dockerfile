@@ -3,8 +3,7 @@ FROM phusion/baseimage:focal-1.0.0
 ENV RUBY_MAJOR "2.7"
 ENV RUBY_VERSION "2.7.3"
 ENV RUBYGEMS_VERSION "3.3.7"
-ENV NODE_VERSION "10.24.1"
-ENV BOWER_VERSION "1.8.2"
+ENV NODE_VERSION "16.17.0"
 
 ENV APT_PACKAGES " \
   git imagemagick gcc g++ make patch binutils libc6-dev libjemalloc-dev \
@@ -40,7 +39,6 @@ RUN gem update --system ${RUBYGEMS_VERSION}
 
 RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
   |tar -xz -C /usr --strip-components=1
-RUN npm install bower@${BOWER_VERSION} -g
 
 RUN rm /etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN rm -r /etc/service/sshd /etc/service/cron
